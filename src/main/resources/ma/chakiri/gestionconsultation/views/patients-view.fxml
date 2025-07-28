@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane prefHeight="550.0" prefWidth="800.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ma.chakiri.gestionconsultation.controller.PatientController">
+    <top>
+        <VBox alignment="TOP_CENTER" styleClass="form-container" BorderPane.alignment="CENTER">
+            <children>
+                <GridPane hgap="15" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="250.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                    <children>
+                        <Label styleClass="form-label" text="Nom:" />
+                        <Label styleClass="form-label" text="Prénom:" GridPane.rowIndex="1" />
+                        <Label styleClass="form-label" text="Téléphone:" GridPane.rowIndex="2" />
+                        <TextField fx:id="textFieldNom" promptText="Entrez le nom du patient" styleClass="text-input" GridPane.columnIndex="1" />
+                        <TextField fx:id="textFieldPrenom" promptText="Entrez le prénom du patient" styleClass="text-input" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <TextField fx:id="textFieldTel" promptText="Entrez le numéro de téléphone" styleClass="text-input" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                    </children>
+                    <padding>
+                        <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
+                    </padding>
+                </GridPane>
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+                    <children>
+                        <Button mnemonicParsing="false" onAction="#addPatient" styleClass="action-button-primary" text="Ajouter Patient" />
+                        <Button mnemonicParsing="false" onAction="#updatePatient" styleClass="action-button-secondary" text="Modifier Patient" />
+                        <Button mnemonicParsing="false" onAction="#deletePatient" styleClass="action-button-danger" text="Supprimer Patient" />
+                        <TextField fx:id="textFieldSearch" promptText="Rechercher..." styleClass="search-input" prefWidth="250" />
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
+                    </padding>
+                </HBox>
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+            </BorderPane.margin>
+        </VBox>
+    </top>
+    <center>
+        <TableView fx:id="tablePatients" prefHeight="200.0" prefWidth="200.0" styleClass="data-table" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="columnId" prefWidth="170.0" text="ID" />
+                <TableColumn fx:id="columnNom" prefWidth="211.0" text="NOM" />
+                <TableColumn fx:id="columnPrenom" prefWidth="193.0" text="PRÉNOM" />
+                <TableColumn fx:id="columnTel" prefWidth="205.0" text="TÉLÉPHONE" />
+            </columns>
+            <BorderPane.margin>
+                <Insets bottom="10.0" left="10.0" right="10.0" />
+            </BorderPane.margin>
+        </TableView>
+    </center>
+</BorderPane>

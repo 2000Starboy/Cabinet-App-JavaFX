@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+
+<TabPane prefHeight="600.0" prefWidth="850.0" tabClosingPolicy="UNAVAILABLE"
+         xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1"
+         fx:controller="ma.chakiri.gestionconsultation.controller.MainController">
+    <tabs>
+        <Tab text="Patients">
+            <fx:include fx:id="patientView" source="patients-view.fxml"/>
+        </Tab>
+        <Tab text="Consultations">
+            <fx:include fx:id="consultationView" source="consultations-view.fxml"/>
+        </Tab>
+    </tabs>
+</TabPane>
